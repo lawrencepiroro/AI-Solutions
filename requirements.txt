@@ -14,7 +14,7 @@ Jinja2==3.1.6
 MarkupSafe==3.0.3
 narwhals==2.21.0
 nest-asyncio==1.6.0
-numpy==2.1.4
+numpy==1.26.4
 packaging==26.2
 pandas==2.2.2
 plotly==6.7.0
