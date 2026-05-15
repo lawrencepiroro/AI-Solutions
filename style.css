@@ -1,0 +1,597 @@
+/* ============================================================
+   style.css — Enterprise Analytics Dashboard Theme
+   ============================================================ */
+
+/* ---------- ROOT VARIABLES ---------- */
+:root {
+    --bg-main: #0b1220;
+    --bg-surface: #111827;
+    --bg-card: #182235;
+    --bg-hover: #22304a;
+
+    --border-color: #2d3b55;
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-soft: #64748b;
+
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.15);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.22);
+    --shadow-lg: 0 18px 35px rgba(0,0,0,0.28);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    --transition: all 0.25s ease;
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Smooth transitions */
+* {
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.header-bar {
+    background: linear-gradient(
+        135deg,
+        #0f172a 0%,
+        #182235 50%,
+        #1e293b 100%
+    );
+
+    padding: 16px 28px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-md);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+}
+
+/* ============================================================
+   KPI CARDS
+   ============================================================ */
+
+.kpi-card {
+    background: linear-gradient(
+        145deg,
+        #182235,
+        #111827
+    );
+
+    border-radius: var(--radius-md);
+
+    padding: 18px 16px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.04);
+
+    box-shadow: var(--shadow-sm);
+
+    min-height: 130px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kpi-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.05)
+    );
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(
+        145deg,
+        #1d2b42,
+        #131d2d
+    );
+}
+
+.kpi-icon {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.kpi-label {
+    margin-top: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    font-weight: 600;
+}
+
+/* ============================================================
+   CHART CARDS
+   ============================================================ */
+
+.chart-card {
+    background: linear-gradient(
+        145deg,
+        #182235,
+        #111827
+    ) !important;
+
+    border-radius: var(--radius-md) !important;
+
+    border: 1px solid var(--border-color) !important;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+
+    margin-bottom: 18px;
+
+    position: relative;
+}
+
+.chart-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: #3b82f6 !important;
+}
+
+.chart-card .card-body {
+    padding: 10px !important;
+}
+
+.chart-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ============================================================
+   FILTER SIDEBAR
+   ============================================================ */
+
+.filter-sidebar {
+    background: linear-gradient(
+        180deg,
+        #182235 0%,
+        #111827 100%
+    );
+
+    border-radius: var(--radius-md);
+
+    padding: 20px 16px;
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    position: sticky;
+    top: 90px;
+
+    max-height: calc(100vh - 110px);
+
+    overflow-y: auto;
+}
+
+.filter-sidebar h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-main);
+}
+
+.filter-sidebar label {
+    display: block;
+
+    margin-top: 14px;
+    margin-bottom: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+}
+
+/* ============================================================
+   DASH DROPDOWNS
+   ============================================================ */
+
+.Select-control,
+.Select-menu-outer,
+.Select-menu {
+    background-color: #1e293b !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+.Select-control {
+    border-radius: var(--radius-sm) !important;
+    min-height: 42px !important;
+}
+
+.Select--multi .Select-value {
+    background-color: rgba(59,130,246,0.15) !important;
+    border: 1px solid rgba(59,130,246,0.35) !important;
+    color: var(--text-main) !important;
+}
+
+.Select-placeholder,
+.Select-value-label,
+.Select-input input {
+    color: var(--text-main) !important;
+}
+
+.VirtualizedSelectOption {
+    background-color: #1e293b !important;
+    color: var(--text-main) !important;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: #334155 !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    box-shadow: none !important;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+}
+
+.btn-success {
+    background-color: var(--success) !important;
+    border-color: var(--success) !important;
+}
+
+.btn-warning {
+    background-color: var(--warning) !important;
+    border-color: var(--warning) !important;
+}
+
+.btn-danger {
+    background-color: var(--danger) !important;
+    border-color: var(--danger) !important;
+}
+
+/* ============================================================
+   FILE UPLOAD
+   ============================================================ */
+
+#upload-data {
+    width: 100%;
+}
+
+#upload-data > div {
+    background: linear-gradient(
+        145deg,
+        #182235,
+        #111827
+    ) !important;
+
+    border: 2px dashed #3b82f6 !important;
+
+    border-radius: var(--radius-md);
+
+    color: var(--text-muted);
+
+    font-weight: 600;
+
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#upload-data > div:hover {
+    border-color: #60a5fa !important;
+    background-color: #1d2b42 !important;
+}
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(59,130,246,0.15),
+        transparent 30%),
+        rgba(11,18,32,0.96);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    backdrop-filter: blur(10px);
+}
+
+.login-card {
+    width: 430px;
+
+    padding: 40px;
+
+    border-radius: var(--radius-lg);
+
+    background: linear-gradient(
+        145deg,
+        #182235,
+        #111827
+    );
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer-bar {
+    margin-top: 14px;
+
+    background: linear-gradient(
+        145deg,
+        #182235,
+        #111827
+    );
+
+    border-radius: var(--radius-md);
+
+    border: 1px solid var(--border-color);
+
+    padding: 16px 18px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================================
+   DATA TABLE
+   ============================================================ */
+
+.dash-spreadsheet-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #1e293b !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+    font-weight: 700 !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td {
+    background-color: #111827 !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+    background-color: #1f2c42 !important;
+}
+
+/* ============================================================
+   DATE PICKER
+   ============================================================ */
+
+.DateRangePickerInput {
+    background-color: #1e293b !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-sm);
+}
+
+.DateInput_input {
+    background-color: #111827 !important;
+    color: var(--text-main) !important;
+    border: none !important;
+}
+
+.CalendarDay {
+    background-color: #111827 !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+.CalendarDay:hover {
+    background-color: #22304a !important;
+}
+
+.CalendarDay__selected {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+
+.nav-tabs {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-muted) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 12px 18px !important;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+    border-bottom: 3px solid var(--primary) !important;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 1200px) {
+
+    .kpi-card {
+        min-height: 120px;
+    }
+
+    .kpi-value {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .filter-sidebar {
+        position: relative;
+        top: 0;
+        max-height: unset;
+        margin-bottom: 16px;
+    }
+
+    .header-bar {
+        padding: 14px 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .kpi-value {
+        font-size: 22px;
+    }
+
+    .kpi-label {
+        font-size: 10px;
+    }
+
+    .login-card {
+        width: 92%;
+        padding: 28px;
+    }
+
+    .footer-bar {
+        text-align: center;
+    }
+}
